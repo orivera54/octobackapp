@@ -8595,7 +8595,6 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
     "stability-flags": {},
     "prefer-stable": true,
     "prefer-lowest": false,
