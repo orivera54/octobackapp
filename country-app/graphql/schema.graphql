@@ -1,0 +1,22 @@
+# Main GraphQL Schema
+type Country {
+    nameCommon: String!
+    nameOfficial: String!
+    area: Float
+    population: Int
+    populationDensity: Float
+}
+type LogEntry {
+    id: ID!
+    username: String!
+    request_timestamp: String!
+    num_countries_returned: Int!
+    countries_details: String
+}
+type Query {
+    countries(count: Int!): [Country!]! @field(resolver: "App\\\\GraphQL\\\\Queries\\\\CountryQuery@topByDensity")
+    logEntries: [LogEntry!]! @field(resolver: "App\\\\GraphQL\\\\Queries\\\\LogEntryQuery@all")
+}
+type Mutation {
+    placeholder(text: String): String @field(resolver: "App\\\\GraphQL\\\\Mutations\\\\PlaceholderMutation@echo")
+}
