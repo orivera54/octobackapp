@@ -11,9 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('log_entries', function (Blueprint $table) {
+        Schema::create('log_use_app', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('username');
+            $table->timestamp('request_timestamp');
+            $table->integer('num_countries_returned');
+            $table->text('countries_details');
         });
     }
 
@@ -22,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('log_entries');
+        Schema::dropIfExists('log_use_app');
     }
 };
